@@ -71,7 +71,7 @@ public class Aditivo extends javax.swing.JFrame {
 
         jLabel3.setText("Principio aditivo");
 
-        jLabel1.setText("Ingrese los valores");
+        jLabel1.setText("Ingrese los eventos");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,7 +97,7 @@ public class Aditivo extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(b_regresar))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
+                        .addGap(72, 72, 72)
                         .addComponent(jLabel3)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );

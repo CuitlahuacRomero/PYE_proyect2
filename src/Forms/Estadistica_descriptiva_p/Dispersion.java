@@ -78,7 +78,7 @@ public class Dispersion extends javax.swing.JFrame {
 
         jLabel1.setText("Resultado");
 
-        jLabel2.setText("Ingresar los valores separados por una coma \",\"");
+        jLabel2.setText("Ingresar los valores separados por un espacio");
 
         b_coeficiente.setText("Coeficiente de variacion");
         b_coeficiente.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +98,7 @@ public class Dispersion extends javax.swing.JFrame {
                         .addComponent(list1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(b_limpiar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(b_regresar)
@@ -148,7 +148,7 @@ public class Dispersion extends javax.swing.JFrame {
                             .addComponent(b_regresar)
                             .addComponent(b_limpiar)))
                     .addComponent(list1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -168,7 +168,7 @@ public class Dispersion extends javax.swing.JFrame {
         String dato = (txt_elementos.getText());
         //Guardar arreglo en list
         list1.removeAll();
-        String[] parts = dato.split(",");
+        String[] parts = dato.split(" ");
         for (String part : parts) {
             list1.add(part);
         }
@@ -196,7 +196,33 @@ public class Dispersion extends javax.swing.JFrame {
     }//GEN-LAST:event_b_rangoActionPerformed
 
     private void b_varianzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_varianzaActionPerformed
-        
+        l_resultado.setText("");
+        list1.removeAll();
+        //Obtener datos del textbox en arreglo
+        String dato = (txt_elementos.getText());
+        //Guardar arreglo en list
+        list1.removeAll();
+        String[] parts = dato.split(" ");
+        for (String part : parts) {
+            list1.add(part);
+        }
+        //Creacion de arreglo tipo int
+        int[] array_enteros = new int[parts.length];
+        //Pasar de String a int
+        for (int i = 0; i < array_enteros.length; i++) {
+            array_enteros[i] = Integer.parseInt(parts[i]);
+        }
+        float x=0,y=0,z=0,w=0;
+        for (int j =0; j< array_enteros.length;j++){
+            x = x + array_enteros[j];
+        }
+        y=x/array_enteros.length;
+        for (int k=0; k< array_enteros.length;k++){
+            z +=(float) Math.pow((array_enteros[k]-y),2);
+        }
+        w = z/array_enteros.length;
+        l_resultado.setText(String.valueOf(w));
+
     }//GEN-LAST:event_b_varianzaActionPerformed
 
     private void b_desviacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_desviacionActionPerformed
@@ -206,7 +232,7 @@ public class Dispersion extends javax.swing.JFrame {
     String dato = (txt_elementos.getText());
     //Guardar arreglo en list
     list1.removeAll();
-    String[] parts = dato.split(",");
+    String[] parts = dato.split(" ");
     for (String part : parts) {
         list1.add(part);
     }
@@ -240,6 +266,35 @@ public class Dispersion extends javax.swing.JFrame {
 
     private void b_coeficienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_coeficienteActionPerformed
         // TODO add your handling code here:
+        l_resultado.setText("");
+        list1.removeAll();
+        //Obtener datos del textbox en arreglo
+        String dato = (txt_elementos.getText());
+        //Guardar arreglo en list
+        list1.removeAll();
+        String[] parts = dato.split(" ");
+        for (String part : parts) {
+            list1.add(part);
+        }
+        //Creacion de arreglo tipo int
+        int[] array_enteros = new int[parts.length];
+        //Pasar de String a int
+        for (int i = 0; i < array_enteros.length; i++) {
+            array_enteros[i] = Integer.parseInt(parts[i]);
+        }
+        float x=0,y=0,z=0,w=0;
+        for (int j =0; j< array_enteros.length;j++){
+            x = x + array_enteros[j];
+        }
+        y=x/array_enteros.length;
+        for (int k=0; k< array_enteros.length;k++){
+            z +=(float) Math.pow((array_enteros[k]-y),2);
+        }
+        z= (float) Math.sqrt(z);
+        w = (z/array_enteros.length)/y;
+        l_resultado.setText(String.valueOf(w));
+
+    
     }//GEN-LAST:event_b_coeficienteActionPerformed
 
     /**

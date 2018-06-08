@@ -160,7 +160,7 @@ public class Tendencia_central extends javax.swing.JFrame {
         String dato = (txt_elementos.getText());
         //Guardar arreglo en list
         list1.removeAll();
-        String[] parts = dato.split(",");
+        String[] parts = dato.split(" ");
         for (String part : parts) {
             list1.add(part);
         }
@@ -204,7 +204,7 @@ public class Tendencia_central extends javax.swing.JFrame {
         String dato = (txt_elementos.getText());
         //Guardar arreglo en list
         list1.removeAll();
-        String[] parts = dato.split(",");
+        String[] parts = dato.split(" ");
         for (String part : parts) {
             list1.add(part);
         }
@@ -250,7 +250,7 @@ public class Tendencia_central extends javax.swing.JFrame {
         float suma=0,resultado=0;
         String dato = (txt_elementos.getText());
         list1.removeAll();
-        String[] parts = dato.split(",");
+        String[] parts = dato.split(" ");
         for(i=0;i<parts.length;i++){
             list1.add(parts[i]);
         }
